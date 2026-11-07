@@ -1,636 +1,662 @@
 <!DOCTYPE html>
-<html dir="rtl" lang="ar">
+<html lang="ar" dir="rtl">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>واحة داتا | هندسة البيانات والتحليلات — الخبر، المنطقة الشرقية</title>
-<meta name="description" content="واحة داتا: شركة استشارات متخصصة في هندسة البيانات والتحليلات لقطاعي الطاقة والصناعة في المنطقة الشرقية. أربعة مسارات عمل، من الجمع اللحظي إلى لوحة القرار.">
-<meta name="theme-color" content="#071026">
+<title>واحة داتا — هندسة البيانات والتحليلات للمؤسسات الصناعية</title>
+<meta name="description" content="واحة داتا: شركة هندسة بيانات وتحليلات في الخبر. نصمّم ونشغّل خطوط المعالجة والمستودعات التحليلية لشركات الطاقة والصناعة في الخليج، بمخطط موثّق وتكلفة شهرية معروفة.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="assets/styles.css">
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
-<script src="assets/app.js" defer></script>
-<script>document.documentElement.classList.add("js");</script>
-<noscript><style>html.js .reveal{opacity:1 !important;transform:none !important}</style></noscript>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600&family=Noto+Kufi+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
+<a class="skip" href="#main">تخطَّ إلى المحتوى</a>
 
-<a class="skip-link" href="#main">تخطَّ إلى المحتوى الرئيسي</a>
-
-<!-- ══════════════════ NAV : HUD BAR ══════════════════ -->
-<header class="nav" id="top">
-  <div class="nav__strip" aria-hidden="true">
-    <span class="chip chip--live"><i class="dot"></i><span class="mono">UPLINK · OK</span></span>
-    <span class="mono strip-item">KHBR <span class="signal">03</span></span>
-    <span class="eq" id="eq"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
-    <span class="strip-item mono">SIGNAL <span class="bar"><b></b><b></b><b></b><b></b></span> 98%</span>
-    <span class="strip-item mono" id="clock">--:--:--</span>
-    <span class="strip-item mono grow">KH · EASTERN PROVINCE · KSA</span>
-  </div>
-
-  <div class="nav__main container">
-    <a class="brand" href="#top" aria-label="واحة داتا — الصفحة الرئيسية">
-      <svg class="brand__mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
-        <path d="M4 22 L10 8 L16 18 L22 6 L28 22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"/>
-        <path d="M4 27 H28" stroke="currentColor" stroke-width="1" opacity=".5"/>
-        <circle cx="22" cy="6" r="2" fill="var(--amber)"/>
+<header class="topbar" id="topbar">
+  <div class="wrap topbar__inner">
+    <a class="brand" href="#" aria-label="واحة داتا — الصفحة الرئيسية">
+      <svg class="brand__mark" viewBox="0 0 28 28" aria-hidden="true">
+        <path d="M14 2.6 25.4 9v10L14 25.4 2.6 19V9L14 2.6Z" fill="none" stroke="currentColor" stroke-width="1.3"/>
+        <path d="M14 8.2v11.6M8.6 11.4v5.2M19.4 11.4v5.2" fill="none" stroke="currentColor" stroke-width="1.3"/>
+        <circle cx="14" cy="6.4" r="1.5" fill="currentColor"/>
       </svg>
-      <span class="brand__text">
-        <span class="brand__name">واحة داتا</span>
-        <span class="brand__sub mono" dir="ltr">WAHA·DATA</span>
-      </span>
+      <span class="brand__name">واحة داتا</span>
     </a>
-
-    <nav class="nav__links" id="primary-nav" aria-label="التنقّل الرئيسي">
-      <a href="#tracks">مسارات العمل</a>
-      <a href="#capabilities">القدرات</a>
-      <a href="#platform">المنصّة</a>
-      <a href="#impact">قصص الأثر</a>
-      <a href="#team">الفريق</a>
+    <nav class="nav" aria-label="التنقل الرئيسي">
+      <a href="#platform">المنصة</a>
+      <a href="#services">مسارات العمل</a>
+      <a href="#stack">التقنيات</a>
+      <a href="#approach">المنهجية</a>
+      <a href="#calculator">حاسبة التكلفة</a>
     </nav>
-
-    <div class="nav__actions">
-      <button type="button" class="motion-toggle" id="motionToggle" aria-pressed="false">
-        <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><rect x="2" y="2" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M6 5.5 L11 8 L6 10.5 Z" fill="currentColor"/></svg>
-        <span class="motion-toggle__label">إيقاف الحركة</span>
-      </button>
-      <a class="btn btn--primary btn--sm" href="#contact">احجز جلسة تشخيص</a>
-      <button type="button" class="burger" id="burger" aria-expanded="false" aria-controls="primary-nav">
-        <span class="sr-only">القائمة</span>
-        <i></i><i></i><i></i>
-      </button>
+    <div class="topbar__actions">
+      <a class="btn btn--quiet" href="#contact">تواصل</a>
+      <a class="btn btn--solid btn--sm" href="#contact">احجز تشخيص المنصة</a>
     </div>
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="mobileNav" aria-label="افتح القائمة">
+      <span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-nav" id="mobileNav" hidden>
+    <a href="#platform">المنصة</a>
+    <a href="#services">مسارات العمل</a>
+    <a href="#stack">التقنيات</a>
+    <a href="#approach">المنهجية</a>
+    <a href="#calculator">حاسبة التكلفة</a>
+    <a href="#team">الفريق</a>
+    <a class="btn btn--solid" href="#contact">احجز تشخيص المنصة</a>
   </div>
 </header>
 
 <main id="main">
 
-<!-- ══════════════════ HERO ══════════════════ -->
-<section class="hero container">
-  <div class="hero__copy">
-    <p class="eyebrow reveal"><span class="mono" dir="ltr">SECTOR 03</span> استشارات بيانات وتحليلات · الطاقة والصناعة</p>
-
-    <h1 class="hero__title reveal">
-      نبني بنيةَ البيانات التي
-      <span class="hl">تصمد أمام ضغط التشغيل</span>
-    </h1>
-
-    <p class="lead reveal">
-      مقرّنا الخبر، وعملنا اليومي مع غرف العمليات ومحطات التوزيع والمصانع.
-      نحوّل الأرقام المبعثرة بين أنظمة الـ SCADA والـ ERP وحقول الاستشعار
-      إلى مصادر قرار واحدة، موثّقة وقابلة للقياس أمام مجلس الإدارة.
-    </p>
-
-    <div class="hero__cta reveal">
-      <a class="btn btn--primary" href="#tracks">اطّلع على مسارات العمل</a>
-      <a class="btn btn--ghost" href="#platform">شاهد المنصّة المرجعية</a>
-    </div>
-
-    <dl class="hero__facts reveal">
-      <div><dt class="mono" dir="ltr">SINCE</dt><dd>2016</dd></div>
-      <div><dt class="mono" dir="ltr">TEAM</dt><dd>24 مهندسًا</dd></div>
-      <div><dt class="mono" dir="ltr">COVERAGE</dt><dd>الخليج</dd></div>
-    </dl>
-  </div>
-
-  <!-- ─── mock dashboard panel ─── -->
-  <aside class="hero__panel" aria-label="لوحة تحكّم توضيحية ببيانات تجريبية">
-    <div class="hud-frame reveal">
-      <span class="brackets" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
-
-      <div class="hud-panel">
-        <header class="hud-panel__head">
-          <h2 class="hud-panel__title">غرفة العمليات — عرض حيّ</h2>
-          <p class="mono hud-panel__meta" dir="ltr" aria-hidden="true">KHBR-03 · <span class="tag-live"><i></i>LIVE</span> · DEMO DATA</p>
-        </header>
-
-        <!-- KPI tiles -->
-        <div class="kpi-row">
-          <article class="kpi">
-            <p class="kpi__label">التدفّق اليومي</p>
-            <p class="kpi__value"><span class="num" aria-hidden="true" data-countup data-target="4.2" data-decimals="1">0.0</span><span class="kpi__unit mono" dir="ltr" aria-hidden="true">TB</span><span class="sr-only">4.2 تيرابايت تدفق بيانات في اليوم</span></p>
-            <p class="kpi__delta up" aria-hidden="true"><span class="mono" dir="ltr">▲ 6.4%</span><span class="kpi__delta-txt">عن أمس</span></p>
-          </article>
-          <article class="kpi">
-            <p class="kpi__label">أنابيب معالجة نشطة</p>
-            <p class="kpi__value"><span class="num" aria-hidden="true" data-countup data-target="214" data-decimals="0">0</span><span class="sr-only">214 أنبوب معالجة نشط</span></p>
-            <p class="kpi__delta up" aria-hidden="true"><span class="mono" dir="ltr">▲ 12</span><span class="kpi__delta-txt">خلال ساعة</span></p>
-          </article>
-          <article class="kpi">
-            <p class="kpi__label">كفاءة استهلاك الحوسبة</p>
-            <p class="kpi__value"><span class="num" aria-hidden="true" data-countup data-target="87" data-decimals="0">0</span><span class="kpi__unit mono" dir="ltr" aria-hidden="true">%</span><span class="sr-only">87 بالمئة كفاءة استهلاك الحوسبة</span></p>
-            <p class="kpi__delta down" aria-hidden="true"><span class="mono" dir="ltr">▼ 2.1%</span><span class="kpi__delta-txt">هدر مُعالَج</span></p>
-          </article>
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="wrap hero__grid">
+      <div class="hero__copy">
+        <p class="eyebrow" data-reveal>هندسة بيانات وتحليلات · الخبر، المنطقة الشرقية</p>
+        <h1 data-reveal>من المستشعر في الميدان<br>إلى قرار في مجلس الإدارة.</h1>
+        <p class="lede" data-reveal>نبني لشركات الطاقة والصناعة واللوجستيات في الخليج خطوط معالجة ومستودعات تحليلية موثّقة: مخطط بيانات واضح، عقود بيانات مختبرة، ولوحة واحدة يتفق عليها الجميع — وتكلفة شهرية تعرفها قبل أن يبدأ البناء.</p>
+        <div class="hero__cta" data-reveal>
+          <a class="btn btn--solid btn--lg" href="#contact">احجز تشخيص المنصة <bdi>(90)</bdi> دقيقة</a>
+          <a class="btn btn--link" href="#calculator">احسب تكلفة منصتك<span aria-hidden="true"> ←</span></a>
         </div>
+        <ul class="hero__notes" data-reveal>
+          <li>متوافق مع نظام حماية البيانات الشخصية <bdi>PDPL</bdi></li>
+          <li>بيانات تُخزَّن داخل المملكة عند الطلب</li>
+          <li>تسليم مع كادر محلي مُدرَّب</li>
+        </ul>
+      </div>
 
-        <!-- sparkline + gauge -->
-        <div class="hud-grid2">
-          <figure class="hud-card">
-            <figcaption class="hud-card__cap">
-              <span>استهلاك العنقود</span><span class="mono" dir="ltr" aria-hidden="true">CLUSTER LOAD / 24H</span>
-            </figcaption>
-            <div class="spark-wrap">
-              <svg class="spark" id="sparkMain" viewBox="0 0 320 104" role="img" aria-labelledby="sparkMainTitle">
-                <title id="sparkMainTitle">الرسم البياني لاستهلاك الحوسبة خلال 24 ساعة؛ الذروة الحالية 87 بالمئة.</title>
-                <g class="spark__grid" aria-hidden="true">
-                  <line x1="0" y1="26" x2="320" y2="26"/><line x1="0" y1="52" x2="320" y2="52"/><line x1="0" y1="78" x2="320" y2="78"/>
-                </g>
-                <path class="spark__area" id="sparkArea" d="M312,78 L274,70 L236,74 L198,52 L160,58 L122,38 L84,44 L46,24 L8,30 L8,102 L312,102 Z"/>
-                <path class="spark__line" id="sparkLine" d="M312,78 L274,70 L236,74 L198,52 L160,58 L122,38 L84,44 L46,24 L8,30"/>
-                <circle class="spark__head" id="sparkHead" cx="8" cy="30" r="3"/>
-              </svg>
-              <p class="spark__readout"><span class="num" aria-hidden="true" data-countup data-target="87" data-decimals="0">0</span><span class="mono" dir="ltr" aria-hidden="true">% NOW</span><span class="sr-only">القيمة الحالية 87 بالمئة</span></p>
+      <div class="hero__visual" data-reveal>
+        <div class="screen">
+          <div class="screen__bar">
+            <span class="screen__dots" aria-hidden="true"><i></i><i></i><i></i></span>
+            <span class="screen__url" dir="ltr">console.waha-data.sa/overview</span>
+            <span class="screen__env" dir="ltr">me-central-1</span>
+          </div>
+
+          <div class="screen__body">
+            <div class="screen__head">
+              <div>
+                <p class="screen__eyebrow">مجموعة البيانات التشغيلية · الربع الرابع</p>
+                <h2>نظرة عامة على المنصة</h2>
+              </div>
+              <span class="pill pill--ok">تشغيل مستقر</span>
             </div>
-          </figure>
 
-          <figure class="hud-card hud-card--gauge">
-            <figcaption class="hud-card__cap">
-              <span>اعتمادية المنصّة</span><span class="mono" dir="ltr" aria-hidden="true">SLO / 30D</span>
-            </figcaption>
-            <div class="gauge-wrap">
-              <svg class="gauge" id="gauge" viewBox="0 0 130 130" role="img" aria-labelledby="gaugeTitle">
-                <title id="gaugeTitle">مؤشر دائري لاعتمادية المنصّة خلال ثلاثين يومًا: 99.2 بالمئة.</title>
-                <circle class="gauge__track" cx="65" cy="65" r="50"/>
-                <circle class="gauge__ticks" cx="65" cy="65" r="58" aria-hidden="true"/>
-                <circle class="gauge__value" id="gaugeValue" cx="65" cy="65" r="50"/>
-                <g class="gauge__sweep" id="gaugeSweep" aria-hidden="true"><path d="M65 65 L65 7 A58 58 0 0 1 108 24 Z"/></g>
-                <line class="gauge__needle" id="gaugeNeedle" x1="65" y1="65" x2="65" y2="20" aria-hidden="true"/>
-                <circle class="gauge__hub" cx="65" cy="65" r="3.5" aria-hidden="true"/>
-              </svg>
-              <p class="gauge__readout"><span class="num" aria-hidden="true" data-countup data-target="99.2" data-decimals="1">0.0</span><span class="gauge__pct mono" dir="ltr" aria-hidden="true">%</span><span class="sr-only">99.2 بالمئة</span></p>
+            <dl class="kpis">
+              <div class="kpi"><dt>خطوط المعالجة النشطة</dt><dd dir="ltr">58</dd></div>
+              <div class="kpi"><dt>زمن وصول البيانات</dt><dd dir="ltr">4.2 min</dd></div>
+              <div class="kpi"><dt>تكلفة الأمس</dt><dd dir="ltr">SAR 1,284</dd></div>
+            </dl>
+
+            <p class="screen__subhead">آخر دورة تشغيل <span dir="ltr">06:00</span> — بتوقيت الخبر</p>
+            <table class="table">
+              <caption class="sr-only">حالة خطوط المعالجة في آخر دورة تشغيل</caption>
+              <thead>
+                <tr>
+                  <th scope="col">خط المعالجة</th>
+                  <th scope="col">المصدر</th>
+                  <th scope="col">الحالة</th>
+                  <th scope="col">المدة</th>
+                  <th scope="col">الصفوف</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="pipe">مبيعات الفروع اليومية<br><small dir="ltr">mart.sales_daily</small></td>
+                  <td><span dir="ltr">Oracle ERP</span></td>
+                  <td><span class="st st--ok">نجح</span></td>
+                  <td dir="ltr">04:12</td>
+                  <td dir="ltr">1,842,300</td>
+                </tr>
+                <tr>
+                  <td class="pipe">قراءات عدّادات الشبكة<br><small dir="ltr">stg.meter_reads</small></td>
+                  <td><span dir="ltr">MQTT / OPC-UA</span></td>
+                  <td><span class="st st--run">قيد التشغيل</span></td>
+                  <td dir="ltr">—</td>
+                  <td dir="ltr">9,140,000</td>
+                </tr>
+                <tr>
+                  <td class="pipe">مخزون المستودعات<br><small dir="ltr">mart.inventory_wms</small></td>
+                  <td><span dir="ltr">SAP WM</span></td>
+                  <td><span class="st st--ok">نجح</span></td>
+                  <td dir="ltr">02:38</td>
+                  <td dir="ltr">418,900</td>
+                </tr>
+                <tr>
+                  <td class="pipe">مؤشرات أداء الأصول<br><small dir="ltr">dm.assets_kpi</small></td>
+                  <td><span dir="ltr">Kafka · Debezium</span></td>
+                  <td><span class="st st--warn">تحذير · تأخّر <bdi>11</bdi> دقيقة</span></td>
+                  <td dir="ltr">09:05</td>
+                  <td dir="ltr">2,610,450</td>
+                </tr>
+                <tr>
+                  <td class="pipe">فاتورة السحابة الشهرية<br><small dir="ltr">finops.usage_daily</small></td>
+                  <td><span dir="ltr">Snowflake</span></td>
+                  <td><span class="st st--ok">نجح</span></td>
+                  <td dir="ltr">00:54</td>
+                  <td dir="ltr">62,100</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div class="chart">
+              <div class="chart__head">
+                <p>حجم الاستيعاب · آخر <bdi>14</bdi> يومًا</p>
+                <p class="chart__peak">الذروة <span dir="ltr">2.9 TB</span> · <span dir="ltr">28-10</span></p>
+              </div>
+              <div class="bars" role="img" aria-label="مخطط أعمدة لحجم البيانات المستوعبة يوميًا خلال آخر أربعة عشر يومًا، يتراوح بين 1.2 و2.9 تيرابايت مع ارتفاع في منتصف الفترة">
+                <i style="height:42%"></i><i style="height:48%"></i><i style="height:39%"></i>
+                <i style="height:63%"></i><i style="height:71%"></i><i style="height:58%"></i>
+                <i style="height:84%"></i><i style="height:100%"></i><i style="height:76%"></i>
+                <i style="height:55%"></i><i style="height:49%"></i><i style="height:61%"></i>
+                <i style="height:44%"></i><i style="height:47%"></i>
+              </div>
+              <div class="chart__axis"><span dir="ltr">21-10</span><span dir="ltr">28-10</span><span dir="ltr">04-11</span><span dir="ltr">11-11</span></div>
             </div>
-          </figure>
-        </div>
 
-        <!-- heat strip -->
-        <figure class="hud-card hud-card--heat">
-          <figcaption class="hud-card__cap">
-            <span>توزيع الأحمال على الورديات</span><span class="mono" dir="ltr" aria-hidden="true">20H × 3 SHIFTS</span>
-          </figcaption>
-          <div class="heat" id="heat" aria-hidden="true"></div>
-          <p class="heat__legend">
-            <span class="mono" dir="ltr" aria-hidden="true">LOW</span>
-            <i class="legend-ramp" aria-hidden="true"></i>
-            <span class="mono" dir="ltr" aria-hidden="true">PEAK</span>
-            <span class="sr-only">خريطة حرارية توضيحية لتوزيع أحمال المعالجة على عشرين ساعة وثلاث ورديات، ببيانات تجريبية.</span>
-          </p>
-        </figure>
+            <div class="screen__foot">
+              <span class="muted">آخر تحديث <span dir="ltr">09:42</span> · تجميع تلقائي كل <bdi>5</bdi> دقائق</span>
+              <a class="btn btn--link btn--sm" href="#platform">سجل التشغيل<span aria-hidden="true"> ←</span></a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  </aside>
-</section>
+  </section>
 
-<!-- ══════════════════ TICKER BAND ══════════════════ -->
-<section class="band-ticker" aria-labelledby="tickerHeading">
-  <h2 class="sr-only" id="tickerHeading">أحداث خطوط المعالجة</h2>
-  <div class="ticker" aria-hidden="true">
-    <div class="ticker__edge ticker__edge--start"></div>
-    <div class="ticker__track" id="tickerTrack"></div>
-    <div class="ticker__edge ticker__edge--end"></div>
-  </div>
-  <p class="ticker__note container">
-    شريط الأحداث يعرض رسائل تشغيلية تجريبية لخطوط المعالجة.
-    <span class="mono" dir="ltr">[ SIMULATED TELEMETRY ]</span>
-  </p>
-  <ul class="sr-only">
-    <li>اكتمل تدفّق بيانات أجهزة الاستشعار: 1.4 مليون سجل خلال 40 ثانية.</li>
-    <li>تمت مزامنة 38 مصدرًا من نظام تخطيط الموارد دون أخطاء.</li>
-    <li>انتهى فحص جودة البيانات: 99.6 بالمئة من السجلات مطابقة.</li>
-    <li>أُعيد تشغيل مهمة مجدولة تلقائيًا بعد انقطاع قصير في الشبكة.</li>
-  </ul>
-</section>
-
-<!-- ══════════════════ TRACKS / ACCORDION ══════════════════ -->
-<section class="section container" id="tracks" aria-labelledby="tracksTitle">
-  <header class="section__head">
-    <p class="eyebrow reveal"><span class="mono" dir="ltr">01 — 04</span> مسارات العمل</p>
-    <h2 class="section__title reveal" id="tracksTitle">أربعة مسارات، وكلّها تنتهي بقرار تشغيلي</h2>
-    <p class="section__lead reveal">
-      لا نبيع أدوات ولا نترك لكم لوحة فارغة. كل مسار له مخرجات مكتوبة ومقياس نجاح
-      متّفق عليه قبل البدء، ويُسند إلى فريق صغير مقيم مع فريقكم.
-    </p>
-  </header>
-
-  <div class="accordion" id="accordion">
-    <article class="acc-item reveal">
-      <h3 class="acc-heading">
-        <button type="button" class="acc-trigger" id="acc-trigger-1" aria-expanded="true" aria-controls="acc-panel-1" data-track="هندسة المنصّات والتدفّق">
-          <span class="acc-index mono" dir="ltr" aria-hidden="true">01</span>
-          <span class="acc-title">هندسة المنصّات والتدفّق</span>
-          <span class="acc-tag mono" dir="ltr" aria-hidden="true">INGEST · STREAM</span>
-          <span class="acc-icon" aria-hidden="true"><i></i><i></i></span>
-        </button>
-      </h3>
-      <div class="acc-panel" id="acc-panel-1" role="region" aria-labelledby="acc-trigger-1">
-        <div class="acc-panel__inner">
-          <p>نصمم طبقة الجمع من أولها: أجهزة الاستشعار في الميدان، وأنظمة التشغيل، وقواعد العمليات، وملفات المصانع.
-            تدفّق لحظي للأحمال التي تتحمّل انتظارًا ثوانٍ، وأحمال دفينة لما يُكفيهِ التحديث كل ساعة.
-            النتيجة: مصدر واحد للحقيقة يعرف كل فريق في الشركة من أين يشرب.</p>
-          <ul class="acc-points">
-            <li>جمع لحظي من بروتوكولات الميدان الصناعية</li>
-            <li>جدولة الأحمال الدفينة وإدارة الأعطال</li>
-            <li>مخطّط بيانات موثّق مع نسخة تاريخية قابلة للتتبّع</li>
-          </ul>
-          <p class="acc-stat"><span class="mono" dir="ltr" aria-hidden="true">TARGET</span> زمن وصول من الميدان إلى اللوحة: <span class="num" aria-hidden="true" data-countup data-target="8" data-decimals="0">0</span> ثوانٍ<span class="sr-only">زمن الوصول المستهدف ثماني ثوانٍ</span></p>
-        </div>
-      </div>
-    </article>
-
-    <article class="acc-item reveal">
-      <h3 class="acc-heading">
-        <button type="button" class="acc-trigger" id="acc-trigger-2" aria-expanded="false" aria-controls="acc-panel-2" data-track="النمذجة والطبقات التحليلية">
-          <span class="acc-index mono" dir="ltr" aria-hidden="true">02</span>
-          <span class="acc-title">النمذجة والطبقات التحليلية</span>
-          <span class="acc-tag mono" dir="ltr" aria-hidden="true">MODEL · METRICS</span>
-          <span class="acc-icon" aria-hidden="true"><i></i><i></i></span>
-        </button>
-      </h3>
-      <div class="acc-panel" id="acc-panel-2" role="region" aria-labelledby="acc-trigger-2" inert>
-        <div class="acc-panel__inner">
-          <p>البيانات الخام لا تجيب عن سؤال. نبني الطبقات التحليلية ومنطق الأعمال:
-            تعريف موحّد للإنتاجية والتوقف والاستهلاك، ومقاييس لا يختلف عليها مهندس المحطة ومدير المالية.
-            ثم نوثّق كل مقييس في سجلّ قابل للمراجعة، حتى يعرف من يقرأ الرقم كيف حُوسب.</p>
-          <ul class="acc-points">
-            <li>طبقات خام ومصقولة وجاهزة للاستهلاك</li>
-            <li>قاموس مقاييس موحّد على مستوى المؤسسة</li>
-            <li>نماذج تنبؤية للصيانة واستهلاك الطاقة</li>
-          </ul>
-          <p class="acc-stat"><span class="mono" dir="ltr" aria-hidden="true">OUTPUT</span> <span class="num" aria-hidden="true" data-countup data-target="120" data-decimals="0">0</span> مقييسًا موثّقًا في قاموس المؤسسة<span class="sr-only">مئة وعشرون مقييسًا موثقا</span></p>
-        </div>
-      </div>
-    </article>
-
-    <article class="acc-item reveal">
-      <h3 class="acc-heading">
-        <button type="button" class="acc-trigger" id="acc-trigger-3" aria-expanded="false" aria-controls="acc-panel-3" data-track="الحوكمة والجودة والأمان">
-          <span class="acc-index mono" dir="ltr" aria-hidden="true">03</span>
-          <span class="acc-title">الحوكمة والجودة والأمان</span>
-          <span class="acc-tag mono" dir="ltr" aria-hidden="true">GOVERN · QUALITY</span>
-          <span class="acc-icon" aria-hidden="true"><i></i><i></i></span>
-        </button>
-      </h3>
-      <div class="acc-panel" id="acc-panel-3" role="region" aria-labelledby="acc-trigger-3" inert>
-        <div class="acc-panel__inner">
-          <p>في قطاع الطاقة، السؤال ليس «هل الرقم صحيح؟» بل «هل أستطيع الدفاع عنه؟».
-            نضع تصنيف البيانات وسياسات الوصول وسجلّ التدقيق، ونربط فحوص الجودة بخط الإنتاج
-            فلا يمرّ سجلّ معطوب إلى لوحة قرار دون أن يُنَبَّه إليه.</p>
-          <ul class="acc-points">
-            <li>تصنيف البيانات وسياسات الوصول على مستوى العمود</li>
-            <li>فحوص جودة آليّة مع عتبات تنبيه</li>
-            <li>توافق مع أنظمة حماية البيانات الشخصية والمتطلبات الوطنية</li>
-          </ul>
-          <p class="acc-stat"><span class="mono" dir="ltr" aria-hidden="true">FLOOR</span> نسبة السجلات المجتازة لفحوص الجودة: <span class="num" aria-hidden="true" data-countup data-target="99.6" data-decimals="1">0.0</span> بالمئة<span class="sr-only">99.6 بالمئة</span></p>
-        </div>
-      </div>
-    </article>
-
-    <article class="acc-item reveal">
-      <h3 class="acc-heading">
-        <button type="button" class="acc-trigger" id="acc-trigger-4" aria-expanded="false" aria-controls="acc-panel-4" data-track="تشغيل البيانات وضبط التكلفة">
-          <span class="acc-index mono" dir="ltr" aria-hidden="true">04</span>
-          <span class="acc-title">تشغيل البيانات وضبط التكلفة</span>
-          <span class="acc-tag mono" dir="ltr" aria-hidden="true">OPS · FINOPS</span>
-          <span class="acc-icon" aria-hidden="true"><i></i><i></i></span>
-        </button>
-      </h3>
-      <div class="acc-panel" id="acc-panel-4" role="region" aria-labelledby="acc-trigger-4" inert>
-        <div class="acc-panel__inner">
-          <p>المنصّة التي لا تُراقَص تتآكل. نُسلّم فريقكم لوحة سلامة للمنصّة نفسها:
-            زمن التحديث، وتكلفة كل فريق، والخطط التي تأخّرت، والأحمال التي تدفع فاتورة بلا مستخدم.
-            ونُشغّل معكم دورة تحسين شهرية مبنية على الأرقام لا على الانطباعات.</p>
-          <ul class="acc-points">
-            <li>مراقبة تشغيلية لخطوط البيانات وأزمنها</li>
-            <li>توزيع تكلفة الحوسبة على الإدارات</li>
-            <li>خطة تعافٍ وتجربة استرجاع مُختبَرة</li>
-          </ul>
-          <p class="acc-stat"><span class="mono" dir="ltr" aria-hidden="true">SAVED</span> خفض تكلفة الحوسبة: <span class="num" aria-hidden="true" data-countup data-target="41" data-decimals="0">0</span> بالمئة<span class="sr-only">واحد وأربعون بالمئة</span></p>
-        </div>
-      </div>
-    </article>
-  </div>
-
-  <p class="sr-only" role="status" aria-live="polite" id="tracksStatus">مسار العمل المفتوح حاليًا: هندسة المنصّات والتدفّق.</p>
-</section>
-
-<!-- ══════════════════ CAPABILITIES ══════════════════ -->
-<section class="section section--bleed" id="capabilities" aria-labelledby="capTitle">
-  <div class="container">
-    <header class="section__head section__head--tight">
-      <p class="eyebrow reveal"><span class="mono" dir="ltr">CAPABILITY MATRIX</span> القدرات</p>
-      <h2 class="section__title reveal" id="capTitle">ما الذي يجيده فريقنا تحديدًا</h2>
-    </header>
-  </div>
-
-  <div class="container">
-    <div class="cap-grid">
-      <article class="cap reveal">
-        <p class="cap__code mono" dir="ltr" aria-hidden="true">C-01</p>
-        <h3 class="cap__title">تصميم بحيرات المستودعات</h3>
-        <p class="cap__text">بنية تخزين بطبقات واضحة، تفصل بين سعة الرخيص وسرعة السؤال المتكرّر.</p>
-        <p class="cap__foot mono" dir="ltr" aria-hidden="true">LAKEHOUSE</p>
-        <span class="cap__scan" aria-hidden="true"></span>
-      </article>
-      <article class="cap reveal">
-        <p class="cap__code mono" dir="ltr" aria-hidden="true">C-02</p>
-        <h3 class="cap__title">هندسة الوقت الحقيقي</h3>
-        <p class="cap__text">معالجة تدفّقات الميدان بترتيب زمني صحيح، مع باب للمؤخَّر والتالِف.</p>
-        <p class="cap__foot mono" dir="ltr" aria-hidden="true">STREAMING</p>
-        <span class="cap__scan" aria-hidden="true"></span>
-      </article>
-      <article class="cap reveal">
-        <p class="cap__code mono" dir="ltr" aria-hidden="true">C-03</p>
-        <h3 class="cap__title">هجرة البيانات إلى السحابة</h3>
-        <p class="cap__text">نقل الأحمال من الخوادم المحلية إلى بيئة مُدارَة دون إيقاف الإنتاج.</p>
-        <p class="cap__foot mono" dir="ltr" aria-hidden="true">MIGRATION</p>
-        <span class="cap__scan" aria-hidden="true"></span>
-      </article>
-      <article class="cap reveal">
-        <p class="cap__code mono" dir="ltr" aria-hidden="true">C-04</p>
-        <h3 class="cap__title">التحليلات التنبؤية والصيانة</h3>
-        <p class="cap__text">نماذج إنذار مبكر للمعدّات الحرجة، مقيَّمة بأثرها التشغيلي لا بدقّتها فقط.</p>
-        <p class="cap__foot mono" dir="ltr" aria-hidden="true">PREDICTIVE</p>
-        <span class="cap__scan" aria-hidden="true"></span>
-      </article>
-      <article class="cap reveal">
-        <p class="cap__code mono" dir="ltr" aria-hidden="true">C-05</p>
-        <h3 class="cap__title">لوحات القرار المؤسسية</h3>
-        <p class="cap__text">لوحات للغرفة الصفراء وللميدان وللمجلس — بتصميم واحد ومقاييس واحدة.</p>
-        <p class="cap__foot mono" dir="ltr" aria-hidden="true">BI / DASHBOARDS</p>
-        <span class="cap__scan" aria-hidden="true"></span>
-      </article>
-      <article class="cap reveal">
-        <p class="cap__code mono" dir="ltr" aria-hidden="true">C-06</p>
-        <h3 class="cap__title">بناء كفاءات داخلية</h3>
-        <p class="cap__text">نُسلّم المعرفة مع المنصّة: توثيق، أزواج برمجة، وخطة تشغيل ذاتي تسعة أشهر.</p>
-        <p class="cap__foot mono" dir="ltr" aria-hidden="true">ENABLEMENT</p>
-        <span class="cap__scan" aria-hidden="true"></span>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- ══════════════════ ARCHITECTURE ══════════════════ -->
-<section class="section container" id="platform" aria-labelledby="archTitle">
-  <header class="section__head">
-    <p class="eyebrow reveal"><span class="mono" dir="ltr">REFERENCE PIPELINE</span> المنصّة</p>
-    <h2 class="section__title reveal" id="archTitle">من مستشعر في الميدان إلى قرار في الاجتماع</h2>
-    <p class="section__lead reveal">
-      هذه مخطّطنا المرجعي، وهو نقطة بداية لا نهاية: يُختصر ويُوسّع حسب واقع أنظمتكم.
-      النقاط المتحرّكة على المسارات تمثيلٌ حيّ لرحلة السجلّ.
-    </p>
-  </header>
-
-  <div class="arch hud-frame reveal">
-    <span class="brackets" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
-    <div class="arch__scroll">
-    <svg class="arch__svg" id="archSvg" viewBox="0 0 1200 366" role="img" aria-labelledby="archTitleSvg archDescSvg">
-      <title id="archTitleSvg">مخطّط المنصّة المرجعية</title>
-      <desc id="archDescSvg">تتدفّق البيانات من اليمين إلى اليسار عبر خمس مراحل: مصادر ميدانية وإدارية، ثم طبقة الجمع والبثّ، ثم المستودع الموحّد، ثم النماذج والمقاييس، ثم لوحات القرار والإنذار. وتُطبَّق سكة الحوكمة والجودة على جميع المراحل.</desc>
-
-      <g class="arch__grid" aria-hidden="true">
-        <path d="M0 322 H1200"/>
-        <path class="faint" d="M120 0 V366 M360 0 V366 M600 0 V366 M840 0 V366 M1080 0 V366"/>
-      </g>
-
-      <!-- connectors : source -> ingest -> warehouse -> models -> reports -->
-      <g class="arch__links" aria-hidden="true">
-        <path id="link1" class="link" d="M1010 152 C 986 200 976 240 935 254"/>
-        <path id="link2" class="link" d="M755 230 C 690 230 658 152 600 152"/>
-        <path id="link3" class="link" d="M520 152 C 496 200 486 240 445 254"/>
-        <path id="link4" class="link" d="M265 230 C 228 230 215 198 215 152"/>
-        <path id="link5" class="link rail-run" d="M1150 322 H60"/>
-      </g>
-
-      <!-- travelling pulses -->
-      <g class="arch__dots" aria-hidden="true">
-        <circle class="pulse" data-path="link1" r="4.2"/>
-        <circle class="pulse" data-path="link2" r="4.2"/>
-        <circle class="pulse" data-path="link3" r="4.2"/>
-        <circle class="pulse" data-path="link4" r="4.2"/>
-        <circle class="pulse pulse--rail" data-path="link5" r="3.4"/>
-      </g>
-
-      <!-- governance rail -->
-      <g class="arch__rail" aria-hidden="true">
-        <path class="rail" d="M20 322 H1180"/>
-        <path class="tick" d="M1090 152 V322"/>
-        <path class="tick" d="M845 300 V322"/>
-        <path class="tick" d="M600 152 V322"/>
-        <path class="tick" d="M355 300 V322"/>
-        <path class="tick" d="M110 152 V322"/>
-        <text class="rail__label" x="600" y="348" text-anchor="middle">سكة الحوكمة والجودة — تُطبَّق على كل طبقة</text>
-      </g>
-
-      <!-- nodes -->
-      <g class="node" transform="translate(1000,60)">
-        <rect x="0" y="0" width="180" height="92" rx="3"/>
-        <path class="node__corner" d="M0 14 V0 H14"/>
-        <text class="node__code mono" x="90" y="24" text-anchor="middle">S-01 · SOURCE</text>
-        <text class="node__label" x="90" y="54" text-anchor="middle">مصادر الميدان</text>
-        <text class="node__sub" x="90" y="76" text-anchor="middle">SCADA · ERP · استشعار</text>
-      </g>
-      <g class="node" transform="translate(755,208)">
-        <rect x="0" y="0" width="180" height="92" rx="3"/>
-        <path class="node__corner" d="M0 14 V0 H14"/>
-        <text class="node__code mono" x="90" y="24" text-anchor="middle">S-02 · INGEST</text>
-        <text class="node__label" x="90" y="54" text-anchor="middle">طبقة الجمع</text>
-        <text class="node__sub" x="90" y="76" text-anchor="middle">بثّ لحظي وأحمال دفينة</text>
-      </g>
-      <g class="node node--hot" transform="translate(510,60)">
-        <rect x="0" y="0" width="180" height="92" rx="3"/>
-        <path class="node__corner" d="M0 14 V0 H14"/>
-        <text class="node__code mono" x="90" y="24" text-anchor="middle">S-03 · WAREHOUSE</text>
-        <text class="node__label" x="90" y="54" text-anchor="middle">المستودع الموحّد</text>
-        <text class="node__sub" x="90" y="76" text-anchor="middle">طبقات ومؤرّخ زمني</text>
-      </g>
-      <g class="node" transform="translate(265,208)">
-        <rect x="0" y="0" width="180" height="92" rx="3"/>
-        <path class="node__corner" d="M0 14 V0 H14"/>
-        <text class="node__code mono" x="90" y="24" text-anchor="middle">S-04 · MODELS</text>
-        <text class="node__label" x="90" y="54" text-anchor="middle">النماذج والمقاييس</text>
-        <text class="node__sub" x="90" y="76" text-anchor="middle">قاموس موحّد وقواعد أعمال</text>
-      </g>
-      <g class="node node--out" transform="translate(20,60)">
-        <rect x="0" y="0" width="180" height="92" rx="3"/>
-        <path class="node__corner" d="M0 14 V0 H14"/>
-        <text class="node__code mono" x="90" y="24" text-anchor="middle">S-05 · REPORTS</text>
-        <text class="node__label" x="90" y="54" text-anchor="middle">لوحات القرار</text>
-        <text class="node__sub" x="90" y="76" text-anchor="middle">مجلس · غرفة · ميدان</text>
-      </g>
-
-      <g class="arch__legend mono" aria-hidden="true">
-        <text x="1180" y="30" text-anchor="end">FLOW · SOURCE → REPORT · p95 8s</text>
-      </g>
-    </svg>
-    </div>
-  </div>
-</section>
-
-<!-- ══════════════════ IMPACT ══════════════════ -->
-<section class="section section--bleed band-impact" id="impact" aria-labelledby="impactTitle">
-  <div class="container">
-    <header class="section__head section__head--split">
-      <div>
-        <p class="eyebrow reveal"><span class="mono" dir="ltr">FIELD RESULTS</span> قصص الأثر</p>
-        <h2 class="section__title reveal" id="impactTitle">شركة طاقة وطنية · برنامج 2023–2025</h2>
-      </div>
-      <p class="section__lead reveal">
-        استغرقت المرحلة الأولى أحد عشر أسبوعًا من المعاينة الميدانية في ثلاث مواقع إنتاج.
-        الأرقام المعروضة هنا توضيحية، مستخرجة من منهجية القياس التي سلّمناها للعميل.
-      </p>
-    </header>
-
-    <div class="metrics">
-      <article class="metric reveal">
-        <p class="metric__label">اعتمادية التدفّق التشغيلي</p>
-        <p class="metric__value"><span class="num" aria-hidden="true" data-countup data-target="99.2" data-decimals="1">0.0</span><span class="metric__unit mono" dir="ltr" aria-hidden="true">%</span><span class="sr-only">99.2 بالمئة اعتمادية التدفق التشغيلي</span></p>
-        <p class="metric__bar" aria-hidden="true"><i style="inline-size:99%"></i></p>
-        <p class="metric__note">من 82% قبل إعادة هندسة طبقة الجمع</p>
-      </article>
-      <article class="metric reveal">
-        <p class="metric__label">زمن إعداد التقرير اليومي</p>
-        <p class="metric__value"><span class="num" aria-hidden="true" data-countup data-target="11" data-decimals="0">0</span><span class="metric__unit mono" dir="ltr" aria-hidden="true">MIN</span><span class="sr-only">احدى عشرة دقيقة زمن اعداد التقرير اليومي</span></p>
-        <p class="metric__bar" aria-hidden="true"><i style="inline-size:22%"></i></p>
-        <p class="metric__note">بدلًا من 47 دقيقة يدوية في ثلاث إدارات</p>
-      </article>
-      <article class="metric reveal">
-        <p class="metric__label">خفض تكلفة الحوسبة</p>
-        <p class="metric__value"><span class="mono metric__sign" dir="ltr" aria-hidden="true">−</span><span class="num" aria-hidden="true" data-countup data-target="41" data-decimals="0">0</span><span class="metric__unit mono" dir="ltr" aria-hidden="true">%</span><span class="sr-only">خفض تكلفة الحوسبة واحد وأربعون بالمئة</span></p>
-        <p class="metric__bar" aria-hidden="true"><i style="inline-size:41%"></i></p>
-        <p class="metric__note">بإعادة جدولة الأحمال وإلغاء نسخ مكرّرة</p>
-      </article>
-    </div>
-
-    <ul class="sectors reveal">
-      <li><span class="mono" dir="ltr" aria-hidden="true">E-01</span> مجموعة صناعية ثقيلة</li>
-      <li><span class="mono" dir="ltr" aria-hidden="true">L-02</span> مشغّل لوجستي خليجي</li>
-      <li><span class="mono" dir="ltr" aria-hidden="true">U-03</span> جهة بنية تحتية</li>
-      <li><span class="mono" dir="ltr" aria-hidden="true">W-04</span> شركة مياه وكهرباء</li>
-    </ul>
-  </div>
-</section>
-
-<!-- ══════════════════ TEAM ══════════════════ -->
-<section class="section container" id="team" aria-labelledby="teamTitle">
-  <header class="section__head section__head--tight">
-    <p class="eyebrow reveal"><span class="mono" dir="ltr">CREDS</span> الفريق</p>
-    <h2 class="section__title reveal" id="teamTitle">مهندسون عملوا في الميدان قبل أن يجلسوا على الطاولة</h2>
-  </header>
-
-  <div class="team">
-    <article class="person reveal">
-      <p class="person__avatar mono" dir="ltr" aria-hidden="true">TD</p>
-      <h3 class="person__name">م. تركي الدوسري</h3>
-      <p class="person__role">شريك ومؤسِّس · معمارية البيانات</p>
-      <p class="person__cred mono" dir="ltr" aria-hidden="true">18y · SCADA · LAKEHOUSE</p>
-    </article>
-    <article class="person reveal">
-      <p class="person__avatar mono" dir="ltr" aria-hidden="true">HO</p>
-      <h3 class="person__name">د. هيا العمري</h3>
-      <p class="person__role">رئيسة وحدة الحوكمة والجودة</p>
-      <p class="person__cred mono" dir="ltr" aria-hidden="true">14y · GOVERNANCE · AUDIT</p>
-    </article>
-    <article class="person reveal">
-      <p class="person__avatar mono" dir="ltr" aria-hidden="true">FS</p>
-      <h3 class="person__name">م. فهد الشمري</h3>
-      <p class="person__role">مهندس منصات الوقت الحقيقي</p>
-      <p class="person__cred mono" dir="ltr" aria-hidden="true">11y · STREAMING · K8S</p>
-    </article>
-    <article class="person reveal">
-      <p class="person__avatar mono" dir="ltr" aria-hidden="true">RQ</p>
-      <h3 class="person__name">م. ريم القحطاني</h3>
-      <p class="person__role">قائدة التحليلات والتنميج</p>
-      <p class="person__cred mono" dir="ltr" aria-hidden="true">09y · MODELLING · FORECAST</p>
-    </article>
-  </div>
-
-  <div class="cred-strip" aria-hidden="true">
-    <span class="mono" dir="ltr">24 ENGINEERS</span>
-    <span class="mono" dir="ltr">KHBR HQ</span>
-    <span class="mono" dir="ltr">24/7 OPS COVER</span>
-    <span class="mono" dir="ltr">GCC DELIVERY</span>
-  </div>
-</section>
-
-<!-- ══════════════════ CTA / INTERCEPTED CONTACT ══════════════════ -->
-<section class="section container" id="contact" aria-labelledby="ctaTitle">
-  <div class="cta">
-    <div class="cta__copy">
-      <p class="eyebrow reveal"><span class="mono" dir="ltr">CHANNEL OPEN</span> لنبدأ</p>
-      <h2 class="section__title reveal" id="ctaTitle">تسعون دقيقة تُنهي الجدال حول أرقامكم</h2>
-      <p class="section__lead reveal">
-        نبدأ بجلسة تشخيص مع فريقكم التقني: نطّلع على المخطّط الحالي، ونخرج بتقرير حالة
-        ومقترح مسار عمل بأولويتَين لا أكثر. لا عرض بيع في الجلسة.
-      </p>
-      <ul class="cta__steps reveal">
-        <li><span class="mono" dir="ltr" aria-hidden="true">01</span> جلسة تشخيص 90 دقيقة</li>
-        <li><span class="mono" dir="ltr" aria-hidden="true">02</span> تقرير حالة ومقترح مسار</li>
-        <li><span class="mono" dir="ltr" aria-hidden="true">03</span> بدء المرحلة خلال أسبوعين</li>
+  <!-- ============ TRUST ============ -->
+  <section class="trust">
+    <div class="wrap">
+      <p class="trust__label">قطاعات نعمل داخلها يوميًا</p>
+      <ul class="trust__list">
+        <li>شركة طاقة وطنية</li>
+        <li>مجموعة صناعية ثقيلة</li>
+        <li>مشغّل لوجستي خليجي</li>
+        <li>بنك إقليمي</li>
+        <li>جهة حكومية للبلديات</li>
+        <li>شركة تصنيع مقاولات</li>
       </ul>
     </div>
+  </section>
 
-    <div class="intercept hud-frame reveal">
-      <span class="brackets" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
-      <div class="intercept__panel">
-        <header class="intercept__head">
-          <h3 class="intercept__title">قناة الاتصال — مُلتقَطة</h3>
-          <p class="mono intercept__meta" dir="ltr" aria-hidden="true"><span class="tag-live"><i></i>INTERCEPTED</span> · REF <span data-decode="WAHA-2026-KHBR">WAHA-2026-KHBR</span></p>
-        </header>
-        <dl class="intercept__rows">
-          <div class="irow"><dt class="mono" dir="ltr">MAIL</dt><dd><a href="mailto:hello@waha-data.sa" class="i-value mono" dir="ltr" data-decode="hello@waha-data.sa">hello@waha-data.sa</a></dd></div>
-          <div class="irow"><dt class="mono" dir="ltr">TEL</dt><dd><span class="i-value mono" dir="ltr" data-decode="+966 13 000 4200">+966 13 000 4200</span></dd></div>
-          <div class="irow"><dt class="mono" dir="ltr">SITE</dt><dd><span class="i-value">الخبر — مركز الأعمال، الدور 11</span></dd></div>
-          <div class="irow"><dt class="mono" dir="ltr">TIME</dt><dd><span class="i-value">الأحد إلى الخميس · 8:00 – 17:00</span></dd></div>
-        </dl>
-        <p class="intercept__note">بيانات تواصل توضيحية ضمن نموذج تصميمي؛ لا يوجد أي جهة إدارة أو تسجيل دخول في هذا الموقع.</p>
-        <a class="btn btn--amber intercept__btn" href="mailto:hello@waha-data.sa">أرسل بريد التشخيص</a>
+  <!-- ============ PROBLEM / PLATFORM ============ -->
+  <section class="section" id="platform">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-head__title">
+          <p class="eyebrow eyebrow--warn">المشكلة</p>
+          <h2 class="section__title">المنصة لا تنكسر مرة واحدة؛ تنكسر في كل تقرير.</h2>
+        </div>
+        <p class="sec-head__aside">ثلاثة أعراض تتكرر في كل مؤسسة صناعية نتولّى منصتها، وكلها تُترجَم إلى قرار مؤجَّل أو فاتورة غير مفهومة.</p>
+      </div>
+
+      <div class="symptoms">
+        <article class="symptom" data-reveal>
+          <h3>ثلاثة إيرادات مختلفة</h3>
+          <p>المالية تُصدر رقمًا، والتشغيل تُصدر آخر، والمبيعات تُصدر ثالثًا — لأن كل فريق بنى تعريفه الخاص لكلمة «إيراد» داخل نسخته من الجداول، بلا عقد بيانات يُلزِم أحدًا.</p>
+        </article>
+        <article class="symptom" data-reveal>
+          <h3>خطوط لا يملكها أحد</h3>
+          <p>سكربتات <bdi>Python</bdi> على جهاز موظف، ومهام مجدولة في <bdi>cron</bdi> بلا مراقبة، تنكسر في إجازة العيد ولا يكتشفها أحد إلا في اجتماع الإدارة.</p>
+        </article>
+        <article class="symptom" data-reveal>
+          <h3>فاتورة سحابة بلا تفسير</h3>
+          <p>مستودع مفتوح على كل الأوقات، وجداول غير مضغوطة، واستعلام واحد يكلّف أكثر من شهر كامل من التخزين — من دون قياس تكلفة لكل قسم.</p>
+        </article>
+      </div>
+
+      <div class="panel" data-reveal>
+        <div class="panel__copy">
+          <p class="eyebrow">ما نبنائه بدلًا من ذلك</p>
+          <h3>عقد بيانات، لا مجرد جداول.</h3>
+          <p>قبل أول سطر كود، نتفق كتابةً على تعريف كل مقياس ومالكه ومصادره وحدوده. ثم يُبنى الخطّ بحيث يفشل مبكرًا وبصوت مسموع إذا خرجت البيانات عن العقد — فتصبح الأرقام قابلة للدفاع عنها في الاجتماع.</p>
+        </div>
+        <ul class="checks">
+          <li><span class="checks__ico" aria-hidden="true">✓</span> قاموس مقاييس واحد: <bdi>42</bdi> مقياسًا مؤسسيًا بتعريف ومالك واحد</li>
+          <li><span class="checks__ico" aria-hidden="true">✓</span> اختبارات جودة على كل نموذج قبل النشر داخل <bdi>dbt</bdi></li>
+          <li><span class="checks__ico" aria-hidden="true">✓</span> تتبّع الأصل من الاستعلام إلى الجدول الخام في الميدان</li>
+          <li><span class="checks__ico" aria-hidden="true">✓</span> تقرير تكلفة شهري لكل قسم وعلى كل خط معالجة</li>
+        </ul>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
+  <!-- ============ SERVICES ============ -->
+  <section class="section section--tint" id="services">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-head__title">
+          <p class="eyebrow">مسارات العمل</p>
+          <h2 class="section__title">ستة مسارات، وكلٌّ ينتهي بمُخرَج مُسلَّم لا بعرض تقديمي.</h2>
+        </div>
+        <p class="sec-head__aside">نعمل بمسار واحد أو بمسارين متتاليين حسب حالة منصتك. كل مسار له مدة نموذجية ومُخرجات مكتوبة تُسلَّم باسمها.</p>
+      </div>
+
+      <div class="tracks">
+        <article class="track" data-reveal>
+          <div class="track__body">
+            <h3>تصميم المستودع والبحيرة التحليلية</h3>
+            <p>مناطق تخزين مفهرسة بصيغة مفتوحة، ونمذجة <bdi>star schema</bdi> للمجالات المالية والتشغيلية، وطبقة خدمة تحمي النماذج من تغييرات المصادر.</p>
+          </div>
+          <p class="track__meta"><span>المدة النموذجية</span><bdi>8–14</bdi> أسبوعًا</p>
+          <p class="track__out"><span>المُخرَج</span>مخطط منطقي ومادي موثّق + طبقة خدمة مُختبَرة</p>
+        </article>
+
+        <article class="track" data-reveal>
+          <div class="track__body">
+            <h3>هندسة البيانات اللحظية</h3>
+            <p>بث من عدّادات الميدان وأنظمة <bdi>ERP</bdi> عبر <bdi>Kafka</bdi> و<bdi>Debezium</bdi>، مع معالجة نافذة زمنية وضمان معالجة مرة واحدة للأحداث الحساسة.</p>
+          </div>
+          <p class="track__meta"><span>المدة النموذجية</span><bdi>6–10</bdi> أسبوعًا</p>
+          <p class="track__out"><span>المُخرَج</span>خطوط لحظية بزمن وصول أقل من <bdi>5</bdi> دقائق</p>
+        </article>
+
+        <article class="track" data-reveal>
+          <div class="track__body">
+            <h3>التحويل والنمذجة التحليلية</h3>
+            <p>طبقة تحويل كاملة في <bdi>dbt</bdi> مع اختبارات ووثائق، وقاموس مقاييس واحد يُستهلَك عبر <bdi>Power BI</bdi> و<bdi>Grafana</bdi> بلا نسخ منطق في لوحات العرض.</p>
+          </div>
+          <p class="track__meta"><span>المدة النموذجية</span><bdi>4–8</bdi> أسبوعًا</p>
+          <p class="track__out"><span>المُخرَج</span>مستودع نماذج مُختبَر + قاموس مقاييس منشور</p>
+        </article>
+
+        <article class="track" data-reveal>
+          <div class="track__body">
+            <h3>الهجرة والترقية من الأنظمة الداخلية</h3>
+            <p>نقل تدريجي من <bdi>Oracle</bdi> و<bdi>SQL Server</bdi> إلى بيئة سحابية أو هجينة، بمسار رجوع لكل دفعة وبتشغيل موازٍ لا يُوقف أعمال الميدان.</p>
+          </div>
+          <p class="track__meta"><span>المدة النموذجية</span><bdi>12–20</bdi> أسبوعًا</p>
+          <p class="track__out"><span>المُخرَج</span>خطة دفعات + تشغيل موازٍ <bdi>90</bdi> يومًا</p>
+        </article>
+
+        <article class="track" data-reveal>
+          <div class="track__body">
+            <h3>جودة البيانات والحوكمة والامتثال</h3>
+            <p>فهارس بيانات وتصنيف للبيانات الشخصية وفق نظام حماية البيانات الشخصية، وضوابط وصول مبنية على الدور، وسجل تدقيق يبقيك جاهزًا للمراجعة.</p>
+          </div>
+          <p class="track__meta"><span>المدة النموذجية</span><bdi>5–9</bdi> أسبوعًا</p>
+          <p class="track__out"><span>المُخرَج</span>دليل بيانات + مصفوفة تصنيف وضوابط وصول</p>
+        </article>
+
+        <article class="track" data-reveal>
+          <div class="track__body">
+            <h3>التحليلات المتقدمة والصيانة التنبؤية</h3>
+            <p>نماذج لتوقّع أعطال الأصول الصناعية وجودة الإنتاج، مربوطة بخط بيانات مُدار لا بنسخة جافا سكريبت على حاسوب محمول، مع قياس دقيق للانحراف.</p>
+          </div>
+          <p class="track__meta"><span>المدة النموذجية</span><bdi>10–16</bdi> أسبوعًا</p>
+          <p class="track__out"><span>المُخرَج</span>نموذج مُدار في الإنتاج + لوحة متابعة</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ STACK ============ -->
+  <section class="section" id="stack">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-head__title">
+          <p class="eyebrow">التقنيات</p>
+          <h2 class="section__title">طبقات خمس، وأدوات معروفة لكل طبقة.</h2>
+        </div>
+        <p class="sec-head__aside">لا نبيع منصة غامضة. نختار الأداة المناسبة لبيئتكم ونبقيها قابلة للاستبدال، ونوثّق كل بديل مُمكن في مخطط المنصة.</p>
+      </div>
+
+      <div class="stack" data-reveal>
+        <div class="stack__row stack__row--head">
+          <p>الطبقة</p><p>الأدوات</p><p>ما تُستخدم له عندنا</p>
+        </div>
+        <div class="stack__row">
+          <p class="stack__layer">الجمع والبث</p>
+          <ul class="chips"><li><bdi>Kafka</bdi></li><li><bdi>Debezium</bdi></li><li><bdi>Airbyte</bdi></li><li><bdi>MQTT</bdi></li><li><bdi>OPC-UA</bdi></li></ul>
+          <p class="stack__use">نقل بيانات الميدان والأنظمة التنفيذية إلى المنصة دون فقدان حدث واحد.</p>
+        </div>
+        <div class="stack__row">
+          <p class="stack__layer">التخزين الموحّد</p>
+          <ul class="chips"><li><bdi>Snowflake</bdi></li><li><bdi>Iceberg</bdi></li><li><bdi>Delta Lake</bdi></li><li><bdi>BigQuery</bdi></li><li><bdi>S3</bdi></li></ul>
+          <p class="stack__use">طبقة خام دائمة ومناطق مفهرسة بصيغة مفتوحة لا تُقيّدكم بمورّد.</p>
+        </div>
+        <div class="stack__row">
+          <p class="stack__layer">التحويل والجدولة</p>
+          <ul class="chips"><li><bdi>dbt</bdi></li><li><bdi>Airflow</bdi></li><li><bdi>Dagster</bdi></li><li><bdi>Spark</bdi></li></ul>
+          <p class="stack__use">نماذج مُختبَرة ودورات تشغيل قابلة للتكرار والإيقاف المؤقت.</p>
+        </div>
+        <div class="stack__row">
+          <p class="stack__layer">التشغيل والبنية</p>
+          <ul class="chips"><li><bdi>Kubernetes</bdi></li><li><bdi>Terraform</bdi></li><li><bdi>Docker</bdi></li><li><bdi>GitHub Actions</bdi></li></ul>
+          <p class="stack__use">بيئات قابلة للاستنساخ من التطوير إلى الإنتاج بدفعة واحدة.</p>
+        </div>
+        <div class="stack__row">
+          <p class="stack__layer">المراقبة والحوكمة</p>
+          <ul class="chips"><li><bdi>Grafana</bdi></li><li><bdi>Prometheus</bdi></li><li><bdi>OpenLineage</bdi></li><li><bdi>Soda</bdi></li><li><bdi>Atlan</bdi></li></ul>
+          <p class="stack__use">تتبّع الأصل، وقياس الجودة، وتفصيل التكلفة لكل فريق عمل.</p>
+        </div>
+      </div>
+
+      <p class="stack__note">الأدوات أعلاه هي ما نستخدمه فعليًا في مشاريع مُسلَّمة، ونُشغّلها على <bdi>AWS</bdi> و<bdi>Azure</bdi> و<bdi>GCP</bdi> أو داخل مراكز بياناتكم. الاختيار يُوثَّق في مخطط المنصة مع بديل واحد على الأقل لكل طبقة.</p>
+    </div>
+  </section>
+
+  <!-- ============ APPROACH ============ -->
+  <section class="section section--tint" id="approach">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-head__title">
+          <p class="eyebrow">المنهجية</p>
+          <h2 class="section__title">خمس مراحل بالترتيب، ولا نختصر واحدة منها.</h2>
+        </div>
+        <p class="sec-head__aside">كل مرحلة تُغلَق بموافقة مكتوبة قبل فتح التالية. هذا ما يجعل الجدول الزمني والتكلفة قابلين للدفاع أمام لجنة المشتريات.</p>
+      </div>
+
+      <ol class="steps">
+        <li class="step" data-reveal>
+          <span class="step__num" dir="ltr">01</span>
+          <div class="step__body">
+            <h3>تشخيص المنصة</h3>
+            <p>جلسة <bdi>90</bdi> دقيقة مع فريق التقنية والأعمال، تليها قراءة للأنظمة والمصادر وفواتير السحابة الحالية. نُسلّم تقريرًا بحجم <bdi>12</bdi> صفحة يحدّد أين تنكسر بياناتكم اليوم وكم يكلّف الإصلاح.</p>
+          </div>
+          <p class="step__out"><span>المُخرَج</span>تقرير تشخيص + أولويات مُقدَّرة</p>
+        </li>
+        <li class="step" data-reveal>
+          <span class="step__num" dir="ltr">02</span>
+          <div class="step__body">
+            <h3>تصميم المخطط وعقود البيانات</h3>
+            <p>نرسم تدفق البيانات من المصدر إلى لوحة العرض، ونكتب عقد كل نطاق: الحقول، والمالك، ومعدلات اكتمالها، وسقف التأخير المسموح. لا يُبنى شيء قبل اعتماد المخطط.</p>
+          </div>
+          <p class="step__out"><span>المُخرَج</span>مخطط منصة + مصفوفة عقود بيانات</p>
+        </li>
+        <li class="step" data-reveal>
+          <span class="step__num" dir="ltr">03</span>
+          <div class="step__body">
+            <h3>البناء والاختبار</h3>
+            <p>خطوط معالجة في مستودع كود واحد، مع اختبارات جودة على كل نموذج، وبيئة تطوير مطابقة للإنتاج عبر <bdi>Terraform</bdi>. تُراجَع كل دفعة مع فريقكم قبل الدمج.</p>
+          </div>
+          <p class="step__out"><span>المُخرَج</span>خطوط مُدارة + حزمة اختبارات</p>
+        </li>
+        <li class="step" data-reveal>
+          <span class="step__num" dir="ltr">04</span>
+          <div class="step__body">
+            <h3>التشغيل المُدار</h3>
+            <p>مراقبة على مدار ساعات العمل، وتنبيهات في قناة واحدة، وتقرير شهري يشرح الاستهلاك والتكلفة وأي انحراف عن العقد — مع اتفاقية مستوى خدمة موقّعة.</p>
+          </div>
+          <p class="step__out"><span>المُخرَج</span>لوحة مراقبة + تقرير شهري + <bdi>SLA</bdi></p>
+        </li>
+        <li class="step" data-reveal>
+          <span class="step__num" dir="ltr">05</span>
+          <div class="step__body">
+            <h3>نقل الملكية والتدريب</h3>
+            <p>أربعة أسابيع يعمل فيها فريقكم على المنصة بأسماء حساباتهم، ونحن في الخلفية. تنتقل الملكية الكاملة للكود والبنية والوثائق، بلا اعتماد مستمر علينا.</p>
+          </div>
+          <p class="step__out"><span>المُخرَج</span>ملكية كاملة + برنامج تدريب</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============ CASE STUDY BAND ============ -->
+  <section class="band" id="impact">
+    <figure class="band__fig">
+      <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f5/Data_center_roof.jpg/1920px-Data_center_roof.jpg"
+           alt="منظور علوي لأسطح تبريد في مركز بيانات ضخم" loading="lazy" width="1920" height="1440">
+    </figure>
+    <div class="band__scrim" aria-hidden="true"></div>
+    <div class="wrap band__content">
+      <p class="band__eyebrow">دراسة حالة · شركة طاقة وطنية · برنامج <bdi>2024–2026</bdi></p>
+      <h2 class="band__title">من <bdi>9</bdi> خطوط بلا مالك إلى <bdi>58</bdi> خطًا مُدارًا بعقود.</h2>
+      <div class="metrics">
+        <div class="metric">
+          <p class="metric__label">زمن تحديث لوحة التشغيل</p>
+          <p class="metric__row"><span class="was" dir="ltr">6 h</span><span class="arrow" aria-hidden="true">←</span><span class="now" dir="ltr">4.2 min</span></p>
+        </div>
+        <div class="metric">
+          <p class="metric__label">تطابق أرقام الإيراد بين الأنظمة</p>
+          <p class="metric__row"><span class="was"><bdi>71%</bdi></span><span class="arrow" aria-hidden="true">←</span><span class="now"><bdi>100%</bdi></span></p>
+        </div>
+        <div class="metric">
+          <p class="metric__label">تكلفة الحوسبة لكل تقرير</p>
+          <p class="metric__row"><span class="was" dir="ltr">SAR 42</span><span class="arrow" aria-hidden="true">←</span><span class="now" dir="ltr">SAR 9</span></p>
+        </div>
+        <div class="metric">
+          <p class="metric__label">التوقف غير المُخطَّط شهريًا</p>
+          <p class="metric__row"><span class="was" dir="ltr">3.4 h</span><span class="arrow" aria-hidden="true">←</span><span class="now" dir="ltr">12 min</span></p>
+        </div>
+      </div>
+      <p class="band__foot">القياسات من سجلات التشغيل قبل وبعد البرنامج، على نفس مجموعة لوحات القرار. الأرقام معادلة لاتينية كما في السجلات.</p>
+    </div>
+  </section>
+
+  <!-- ============ CALCULATOR ============ -->
+  <section class="section" id="calculator">
+    <div class="wrap calc">
+      <div class="calc__intro">
+        <p class="eyebrow">نظام تجريبي</p>
+        <h2 class="section__title">كم تكلّف منصتك شهريًا؟</h2>
+        <p>الحاسبة تُقدّر التكلفة الشهرية لمنصة بيانات في السعودية بالريال السعودي: حوسبة، وتخزين، وتراخيص، وهندسة مُدارة. عدّل الأرقام لتطابق حجم بياناتكم، ثم خذ النتيجة إلى جلسة التشخيص.</p>
+
+        <ul class="rules">
+          <li><span>الحوسبة <small>لكل TB / لكل خط / لكل مستخدم</small></span><bdi>34 · 280 · 12 SAR</bdi></li>
+          <li><span>التخزين <small>لكل TB · احتفاظ <bdi>12</bdi> شهرًا</small></span><bdi>96 SAR</bdi></li>
+          <li><span>التراخيص <small>لكل مستخدم / لكل خط</small></span><bdi>82 · 45 SAR</bdi></li>
+          <li><span>الهندسة المُدارة <small>أساس + لكل خط + لكل TB</small></span><bdi>9,000 · 320 · 60 SAR</bdi></li>
+          <li><span>معامل البيئة <small>سحابي / هجين / داخلي</small></span><bdi>1.00 · 1.15 · 1.28</bdi></li>
+        </ul>
+
+        <p class="calc__disclaimer">تقدير إرشادي يُحتسب في متصفحكم ولا يُعد عرضًا سعرًا. الأسعار الفعلية تعتمد على المورّد وحجم التعاقد والبيئة، وهي غير شاملة ضريبة القيمة المضافة <bdi>15%</bdi> ولا رسوم تكامل الأنظمة القائمة.</p>
+      </div>
+
+      <form class="calc__form" id="calcForm" autocomplete="off">
+        <div class="field">
+          <label for="tb">حجم البيانات شهريًا</label>
+          <div class="input"><input id="tb" name="tb" type="number" inputmode="numeric" min="1" max="5000" step="1" value="40"><span dir="ltr">TB</span></div>
+          <p class="field__hint">البيانات الجديدة المستوعبة كل شهر، قبل الضغط.</p>
+        </div>
+        <div class="field field--half">
+          <label for="pipes">عدد خطوط المعالجة</label>
+          <div class="input"><input id="pipes" name="pipes" type="number" inputmode="numeric" min="1" max="600" step="1" value="24"><span dir="ltr">خط</span></div>
+        </div>
+        <div class="field field--half">
+          <label for="users">عدد المستخدمين النهائيين</label>
+          <div class="input"><input id="users" name="users" type="number" inputmode="numeric" min="1" max="20000" step="5" value="120"><span dir="ltr">مستخدم</span></div>
+        </div>
+
+        <fieldset class="field field--env">
+          <legend>بيئة النشر</legend>
+          <div class="segments" role="radiogroup" aria-label="بيئة النشر">
+            <label class="seg">
+              <input type="radio" name="env" value="cloud" checked>
+              <span class="seg__box"><b>سحابي خاص</b><small>منطقة سحابية واحدة داخل المملكة</small></span>
+            </label>
+            <label class="seg">
+              <input type="radio" name="env" value="hybrid">
+              <span class="seg__box"><b>هجين</b><small>ميدان داخلي + مستودع سحابي</small></span>
+            </label>
+            <label class="seg">
+              <input type="radio" name="env" value="onprem">
+              <span class="seg__box"><b>داخلي بالكامل</b><small>مركز بيانات لديكم، بلا سحابة</small></span>
+            </label>
+          </div>
+        </fieldset>
+      </form>
+
+      <div class="calc__out" id="calcOut" aria-live="polite">
+        <div class="out-head">
+          <p class="out-env">التقدير لبيئة: <span id="oEnv">سحابي خاص</span></p>
+          <p class="out-total"><bdi id="oTotal" dir="ltr">—</bdi><span>ريال / شهريًا</span></p>
+        </div>
+
+        <table class="out-table">
+          <caption class="sr-only">تفصيل التكلفة الشهرية التقديرية</caption>
+          <tbody>
+            <tr><th scope="row">حوسبة</th><td dir="ltr" id="oCompute">—</td><td class="share"><i id="sCompute"></i></td></tr>
+            <tr><th scope="row">تخزين</th><td dir="ltr" id="oStorage">—</td><td class="share"><i id="sStorage"></i></td></tr>
+            <tr><th scope="row">تراخيص</th><td dir="ltr" id="oLicense">—</td><td class="share"><i id="sLicense"></i></td></tr>
+            <tr><th scope="row">هندسة مُدارة</th><td dir="ltr" id="oEng">—</td><td class="share"><i id="sEng"></i></td></tr>
+          </tbody>
+        </table>
+
+        <div class="out-rows">
+          <div class="out-row"><span>النطاق المتوقع <small><bdi>±15%</bdi></small></span><strong dir="ltr" id="oRange">—</strong></div>
+          <div class="out-row"><span>تكلفة كل تيرابايت مستوعَبة</span><strong dir="ltr" id="oUnit">—</strong></div>
+          <div class="out-row"><span>على السنة الأولى</span><strong dir="ltr" id="oYear">—</strong></div>
+        </div>
+
+        <p class="out-cap" id="oCap">—</p>
+        <a class="btn btn--solid btn--block" href="#contact">راجع هذا التقدير مع مهندس</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TEAM ============ -->
+  <section class="section section--tint" id="team">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-head__title">
+          <p class="eyebrow">الفريق</p>
+          <h2 class="section__title">مهندسون عملوا في الميدان قبل أن يجلسوا على الطاولة.</h2>
+        </div>
+        <p class="sec-head__aside">فريق صغير، <bdi>14</bdi> مهندسًا ومستشارًا، أغلبهم سبق أن عمل داخل شركات تشغيلية في المملكة والخليج — ولهذا تُكتب حلولهم بلغة تُفهم في الاجتماع.</p>
+      </div>
+
+      <div class="people">
+        <article class="person" data-reveal>
+          <span class="mono-av" aria-hidden="true">تد</span>
+          <h3 class="person__name">م. تركي الدوسري</h3>
+          <p class="person__role">شريك مؤسس · مهندس منصة رئيسي</p>
+          <p class="person__cred"><bdi>AWS</bdi> Certified Data Analytics · <bdi>12</bdi> عامًا في منصات الطاقة</p>
+        </article>
+        <article class="person" data-reveal>
+          <span class="mono-av" aria-hidden="true">هع</span>
+          <h3 class="person__name">د. هيا العمري</h3>
+          <p class="person__role">رئيسة قسم النمذجة والحوكمة</p>
+          <p class="person__cred">دكتوراه علوم بيانات · <bdi>ISO/IEC 27001</bdi> Lead Implementer</p>
+        </article>
+        <article class="person" data-reveal>
+          <span class="mono-av" aria-hidden="true">فش</span>
+          <h3 class="person__name">م. فهد الشمري</h3>
+          <p class="person__role">مهندس بيانات لحظية</p>
+          <p class="person__cred"><bdi>Confluent</bdi> Certified Developer · <bdi>Kafka</bdi> في شبكات التوزيع</p>
+        </article>
+        <article class="person" data-reveal>
+          <span class="mono-av" aria-hidden="true">رق</span>
+          <h3 class="person__name">م. ريم القحطاني</h3>
+          <p class="person__role">مهندسة موثوقية التشغيل</p>
+          <p class="person__cred"><bdi>Certified Kubernetes Administrator</bdi> · <bdi>FinOps</bdi></p>
+        </article>
+      </div>
+
+      <div class="creds">
+        <figure class="creds__fig">
+          <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/9/94/Wikimedia_Servers-0001_42.jpg/1920px-Wikimedia_Servers-0001_42.jpg"
+               alt="رف تخزين يحمل محوّلات شبكة وكابلات بيانات متعددة الألوان داخل مركز بيانات" loading="lazy" width="1920" height="1280">
+          <figcaption>من داخل بيئة تشغيل مُدارة: رفوف، ومحوّلات، وخطوط لا يعرف أحد اسمها إلا إذا كانت موثّقة.</figcaption>
+        </figure>
+        <div class="creds__list">
+          <h3>اعتمادات شراكات وتراخيص سارية</h3>
+          <ul>
+            <li><span class="mono-av mono-av--sm" aria-hidden="true">aw</span><p><bdi>AWS</bdi> Advanced Partner — مسار البيانات</p></li>
+            <li><span class="mono-av mono-av--sm" aria-hidden="true">sf</span><p>شريك بناء معتمد لدى <bdi>Snowflake</bdi></p></li>
+            <li><span class="mono-av mono-av--sm" aria-hidden="true">db</span><p><bdi>Databricks</bdi> Certified Data Engineer Professional</p></li>
+            <li><span class="mono-av mono-av--sm" aria-hidden="true">is</span><p>نظام إدارة أمن المعلومات <bdi>ISO/IEC 27001</bdi></p></li>
+            <li><span class="mono-av mono-av--sm" aria-hidden="true">zd</span><p>مسجَّلة في الهيئة السعودية للبيانات والذكاء الاصطناعي كمعالِج بيانات</p></li>
+          </ul>
+          <p class="creds__note">العناوين أعلاه توضيحية لنموذج تصميمي، ولا تمثّل سجلات اعتماد فعلية.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section class="section" id="faq">
+    <div class="wrap wrap--narrow">
+      <div class="sec-head sec-head--stack">
+        <div class="sec-head__title">
+          <p class="eyebrow">أسئلة قبل التعاقد</p>
+          <h2 class="section__title">ما يسأل عنه مديرو التقنية فعلًا.</h2>
+        </div>
+      </div>
+      <div class="faq">
+        <details>
+          <summary>أين تُخزَّن بياناتنا، وكيف تلتزمون بنظام حماية البيانات الشخصية؟</summary>
+          <p>افتراضيًا تُخزَّن داخل المملكة في المنطقة السحابية <bdi>(me-central-1)</bdi>، أو في مركز بياناتكم إن كانت بيئتكم داخلية. نُصنّف الحقول الشخصية في دليل البيانات، ونطبّق ضوابط وصول بالدور، وتشفيرًا أثناء النقل والتخزين، وسجل تدقيق يبقى <bdi>12</bdi> شهرًا على الأقل. نُسلّمكم مصفوفة الالتزام قبل التشغيل.</p>
+        </details>
+        <details>
+          <summary>من يملك الكود والبنية بعد نهاية المشروع؟</summary>
+          <p>أنتم. مستودع الكود وحُزم <bdi>Terraform</bdi> ولوحات العرض والوثائق تنتقل إلى حساباتكم في نهاية مرحلة نقل الملكية، ولا نحتفظ بنسخة تشغيلية إلا باتفاق صريح لصيانة مُدارة.</p>
+        </details>
+        <details>
+          <summary>كيف تُقيسون زمن الوصول، وماذا يحدث عند تأخّر خط معالجة؟</summary>
+          <p>يُعرَّف زمن الوصول في عقد البيانات لكل خط: من لحظة الحدث في المصدر حتى ظهوره في طبقة الخدمة. عند تجاوز السقف يُفتح تنبيه في قناتكم ويتوقّف التحديث التالي بدل نشر رقم خاطئ، ثم يُوثَّق السبب في التقرير الشهري.</p>
+        </details>
+        <details>
+          <summary>هل تُلغون أنظمتنا القديمة أثناء الهجرة؟</summary>
+          <p>لا. نعمل بالتشغيل الموازي: المصدر القديم يبقى مسؤولًا عن العملية، والمنصة الجديدة تُصدر أرقامًا للمقارنة. لا يُغلق نظام إلا بعد <bdi>90</bdi> يومًا من التطابق المُوثَّق، مع خطة رجوع مكتوبة لكل دفعة.</p>
+        </details>
+        <details>
+          <summary>كيف تُحتسب أتعابكم؟</summary>
+          <p>سعر ثابت لكل مسار عمل بحسب النطاق، لا تسعير بالساعة. التشغيل المُدار عقد سنوي ببنية مستويات خدمة، ويُراجع كل <bdi>6</bdi> أشهر. جلسة التشخيص مدفوعة وتُخصم من قيمة أول مسار إذا تابعنا معًا.</p>
+        </details>
+        <details>
+          <summary>ماذا لو كان فريقنا الداخلي صغيرًا جدًا؟</summary>
+          <p>نبني بما يناسب حجمكم: منصة أقل طبقات، وخطوطًا أقل، وأتمتة تشغيل أعلى، مع برنامج تدريب على رأس العمل في المرحلة الأخيرة. الهدف أن يديرها <bdi>2</bdi> من مهندسيكم بعد التسليم، لا <bdi>10</bdi>.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CTA ============ -->
+  <section class="cta" id="contact">
+    <div class="wrap cta__inner">
+      <p class="eyebrow">الخطوة التالية</p>
+      <h2>تسعون دقيقة تُنهي الجدال حول أرقامكم.</h2>
+      <p>نراجع معكم مخطط المنصة الحالي، وفاتورة السحابة، وثلاثة مقاييس يختلف عليها فريقكم. في نهاية الجلسة تعرفون أين ينكسر الخط التالفي وكم يكلّف إصلاحه.</p>
+      <div class="cta__actions">
+        <a class="btn btn--solid btn--lg" href="mailto:diagnostics@waha-data.sa">احجز جلسة التشخيص</a>
+        <a class="btn btn--link" href="tel:+966138000000"><bdi>+966 13 800 0000</bdi></a>
+      </div>
+      <p class="cta__meta">الخبر · طريق الملك سعود · الأحد إلى الخميس <bdi>08:00–17:00</bdi></p>
+    </div>
+  </section>
 </main>
 
-<!-- ══════════════════ FOOTER ══════════════════ -->
 <footer class="footer">
-  <div class="container footer__grid">
+  <div class="wrap footer__grid">
     <div class="footer__brand">
-      <p class="brand__name brand__name--lg">واحة داتا</p>
-      <p class="footer__blurb">استشارات هندسة البيانات والتحليلات · المنطقة الشرقية، المملكة العربية السعودية.</p>
-      <p class="mono footer__domain" dir="ltr">waha-data.sa</p>
+      <span class="brand__name">واحة داتا</span>
+      <p>هندسة بيانات وتحليلات للمؤسسات الصناعية والطاقة في الخليج. مخطط موثّق، خطوط مُدارة، وتكلفة معروفة.</p>
+      <p class="footer__loc">الخبر، المنطقة الشرقية · المملكة العربية السعودية</p>
     </div>
-    <nav class="footer__col" aria-label="روابط الموقع">
-      <p class="footer__head mono" dir="ltr">NAVIGATE</p>
-      <a href="#tracks">مسارات العمل</a>
-      <a href="#capabilities">القدرات</a>
-      <a href="#platform">المنصّة</a>
-      <a href="#impact">قصص الأثر</a>
-      <a href="#team">الفريق</a>
+    <nav class="footer__col" aria-label="الخدمات">
+      <h4>مسارات العمل</h4>
+      <a href="#services">المستودع التحليلي</a>
+      <a href="#services">البيانات اللحظية</a>
+      <a href="#services">الهجرة والترقية</a>
+      <a href="#services">الجودة والحوكمة</a>
     </nav>
-    <div class="footer__col">
-      <p class="footer__head mono" dir="ltr">SERVICE</p>
-      <p>هندسة المنصّات والتدفّق</p>
-      <p>النمذجة والطبقات التحليلية</p>
-      <p>الحوكمة والجودة والأمان</p>
-      <p>تشغيل البيانات وضبط التكلفة</p>
-    </div>
-    <div class="footer__col">
-      <p class="footer__head mono" dir="ltr">CONTACT</p>
-      <p class="mono" dir="ltr">hello@waha-data.sa</p>
-      <p class="mono" dir="ltr">+966 13 000 4200</p>
-      <p>الخبر — مركز الأعمال</p>
-      <p class="mono" dir="ltr">KHBR · 26.28°N 50.20°E</p>
-    </div>
+    <nav class="footer__col" aria-label="الشركة">
+      <h4>الشركة</h4>
+      <a href="#team">الفريق</a>
+      <a href="#approach">المنهجية</a>
+      <a href="#impact">دراسات الحالة</a>
+      <a href="#contact">تواصل معنا</a>
+    </nav>
+    <nav class="footer__col" aria-label="موارد">
+      <h4>موارد</h4>
+      <a href="#calculator">حاسبة التكلفة</a>
+      <a href="#stack">التقنيات</a>
+      <a href="#faq">الأسئلة الشائعة</a>
+      <a href="#platform">حالة المنصة</a>
+    </nav>
   </div>
-
-  <div class="container footer__bottom">
-    <p class="footer__legal">© <span class="mono" dir="ltr">2026</span> واحة داتا — موقع تصميمي توضيحي؛ الأرقام والجهات التجريبية فيها للعرض فقط.</p>
-    <p class="credit">من صناعة <span class="credit__mark" dir="ltr">Tenvora</span></p>
+  <div class="wrap footer__base">
+    <p>© <span dir="ltr">2026</span> واحة داتا · نموذج تصميمي توضيحي.</p>
+    <p class="footer__credit">من صناعة <span dir="ltr">Tenvora</span></p>
+    <p class="footer__attr">الصور: <a href="https://commons.wikimedia.org/wiki/File:Data_center_roof.jpg" rel="license noopener" target="_blank">مركز بيانات · CC0</a> و<a href="https://commons.wikimedia.org/wiki/File:Wikimedia_Servers-0001_42.jpg" rel="license noopener" target="_blank">رف خوادم · CC BY-SA 3.0</a> — ويكيميديا كومنز.</p>
   </div>
 </footer>
 
+<script src="app.js"></script>
 </body>
 </html>
