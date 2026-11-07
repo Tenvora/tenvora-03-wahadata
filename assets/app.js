@@ -65,7 +65,7 @@ function boot() {
     }
   };
 
-  /* ── UTILITIES ──────────────────────────────────────────────────────────── */
+  /* ── UTILITIES ───────────────────────────────────────────────────────── */
   function qs(sel, ctx) { return (ctx || document).querySelector(sel); }
   function qsa(sel, ctx) { return Array.prototype.slice.call((ctx || document).querySelectorAll(sel)); }
   function clamp(v, a, b) { return v < a ? a : v > b ? b : v; }
