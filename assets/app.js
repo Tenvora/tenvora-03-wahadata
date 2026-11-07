@@ -65,7 +65,7 @@ function boot() {
     }
   };
 
-  /* ── UTILITIES ────────────────────────────────────────────────────────── */
+  /* ── UTILITIES ──────────────────────────────────────────────────────────── */
   function qs(sel, ctx) { return (ctx || document).querySelector(sel); }
   function qsa(sel, ctx) { return Array.prototype.slice.call((ctx || document).querySelectorAll(sel)); }
   function clamp(v, a, b) { return v < a ? a : v > b ? b : v; }
@@ -89,7 +89,7 @@ function boot() {
     io.observe(node);
   }
 
-  /* ── 1. COUNTERS : count-up, then gentle live drift ───────────── */
+  /* ── 1. COUNTERS : count-up, then gentle live drift ──────────────────── */
   qsa("[data-countup]").forEach(function (el, idx) {
     var target = parseFloat(el.getAttribute("data-target")) || 0;
     var dec = parseInt(el.getAttribute("data-decimals"), 10) || 0;
@@ -129,7 +129,7 @@ function boot() {
     });
   });
 
-  /* ── 2. SPARKLINE : draws itself, then streams new samples ─────── */
+  /* ── 2. SPARKLINE : draws itself, then streams new samples ───────────── */
   (function spark() {
     var line = qs("#sparkLine"), area = qs("#sparkArea"), head = qs("#sparkHead");
     if (!line || !area || !head) return;
@@ -199,7 +199,7 @@ function boot() {
     });
   })();
 
-  /* ── 3. GAUGE : arc fills, needle settles, radar wedge sweeps ──── */
+  /* ── 3. GAUGE : arc fills, needle settles, radar wedge sweeps ────────── */
   (function gauge() {
     var svg = qs("#gauge"), arc = qs("#gaugeValue"), needle = qs("#gaugeNeedle"), sweep = qs("#gaugeSweep");
     if (!svg || !arc || !needle) return;
@@ -244,7 +244,7 @@ function boot() {
     });
   })();
 
-  /* ── 4. HEAT GRID : staggered wave across capped cell count ────── */
+  /* ── 4. HEAT GRID : staggered wave across capped cell count ──────────── */
   (function heat() {
     var host = qs("#heat");
     if (!host) return;
@@ -276,7 +276,7 @@ function boot() {
     });
   })();
 
-  /* ── 5. TICKER : rAF marquee, mirrored for RTL ───────────────── */
+  /* ── 5. TICKER : rAF marquee, mirrored for RTL ───────────────────────── */
   (function ticker() {
     var track = qs("#tickerTrack");
     if (!track) return;
@@ -328,7 +328,7 @@ function boot() {
     });
   })();
 
-  /* ── 6. ARCHITECTURE : pulses travelling the connectors ────────── */
+  /* ── 6. ARCHITECTURE : pulses travelling the connectors ──────────────── */
   (function arch() {
     var svg = qs("#archSvg");
     var host = qs(".arch");
@@ -368,7 +368,7 @@ function boot() {
     });
   })();
 
-  /* ── 7. NAV STRIP : clock, equalizer, signal bars, ambient sweep ─── */
+  /* ── 7. NAV STRIP : clock, equalizer, signal bars, ambient sweep ─────── */
   (function strip() {
     var clock = qs("#clock"), eq = qsa("#eq i"), bars = qsa(".bar b"), phase = [];
     for (var i = 0; i < eq.length; i++) phase.push(Math.random() * 6.28);
@@ -413,7 +413,7 @@ function boot() {
     }
   })();
 
-  /* ── 8. DECODE : scramble-lock the Latin reference codes ─────────── */
+  /* ── 8. DECODE : scramble-lock the Latin reference codes ─────────────── */
   (function decode() {
     var pool = "ABCDEFGHJKLMNPQRSTUVWXYZ0123456789#/%$";
     qsa("[data-decode]").forEach(function (el) {
@@ -444,7 +444,7 @@ function boot() {
     });
   })();
 
-  /* ── 9. ACCORDION : keyboard-operable, height-animated ─────────── */
+  /* ── 9. ACCORDION : keyboard-operable, height-animated ───────────────── */
   (function accordion() {
     var triggers = qsa(".acc-trigger");
     if (!triggers.length) return;
@@ -509,7 +509,7 @@ function boot() {
     }
   })();
 
-  /* ── 10. NAV : mobile sheet + motion toggle ──────────────────── */
+  /* ── 10. NAV : mobile sheet + motion toggle ──────────────────────────── */
   (function nav() {
     var burger = qs("#burger"), links = qs("#primary-nav"), toggle = qs("#motionToggle");
     if (burger && links) {
@@ -576,7 +576,7 @@ function boot() {
     });
   })();
 
-  /* ── 12. LIFECYCLE : no leaked loops when the tab sleeps ─────────── */
+  /* ── 12. LIFECYCLE : no leaked loops when the tab sleeps ─────────────── */
   document.addEventListener("visibilitychange", function () {
     pageVisible = !document.hidden;
     if (pageVisible && !paused) { Engine.start(); } else { Engine.stop(); }
